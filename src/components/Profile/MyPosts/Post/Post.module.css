@@ -1,0 +1,15 @@
+.item{
+    color: yellow;
+    margin-top: 10px;
+}
+
+.item img{
+    width: 65px;
+    height: 65px;
+    border-radius: 90px;
+}
+
+.innerItem{
+    display: flex;
+    justify-content: start;
+}
