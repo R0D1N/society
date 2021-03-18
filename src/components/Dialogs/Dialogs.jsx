@@ -2,6 +2,19 @@ import React from "react";
 import style from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 
+const chatData = [
+    { name: 'Vitor', id: 1 },
+    { name: 'Sasha', id: 2 },
+    { name: 'Petya', id: 3 },
+    { name: 'Tanya', id: 4 },
+    { name: 'Liza', id: 5 },
+]
+const msgData = [
+    {msg: 'WHat'},
+    {msg: 'the'},
+    {msg: 'fuck'},
+]
+
 const Dialog = data =>{
     const {name, id} = data;
     return (
@@ -10,7 +23,6 @@ const Dialog = data =>{
         </div>
     )
 }
-
 const Msg = data =>{
     const {msg} = data;
 
@@ -19,20 +31,18 @@ const Msg = data =>{
     )
 }
 
-const Dialogs = () => {
+const renderChatData = chatData.map(d => <Dialog name={d.name} id={d.id}/>)
+const renderMsgData = msgData.map(d => <Msg msg={d.msg}/>)
+
+
+ const Dialogs = () => {
     return (
         <div className={style.dialogWindow}>
             <div className={style.dialogs}>
-                <Dialog name='Victor' id='1'/>
-                <Dialog name='Sasha' id='2' />
-                <Dialog name='Petya' id='3' />
-                <Dialog name='Tanya' id='4' />
-                <Dialog name='Liza' id='5' />
+                {renderChatData}
             </div>
             <div className={style.messages}>
-                <Msg msg='What'/>
-                <Msg msg='the'/>
-                <Msg msg='fuck'/>
+                {renderMsgData}
             </div>
         </div>
     )
